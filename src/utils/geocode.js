@@ -34,7 +34,14 @@ const forecast = (latitude, longitude, callback) => {
       callback('Unable to find location!', undefined);
     } else {
       let data = body.current;
-      callback(undefined, 'It is ' + data.temperature + ' deegres outside!');
+      console.log(data);
+      callback(
+        undefined,
+        'It is ' +
+          data.temperature +
+          ' deegres outside and its ' +
+          data.weather_descriptions
+      );
     }
   });
 };
