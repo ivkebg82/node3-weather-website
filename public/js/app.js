@@ -12,14 +12,14 @@ weatherForm.addEventListener('submit', (e) => {
     res.json().then((data) => {
       console.log(data);
       if (data.error) {
-        messageOne.textContent = data;
-        messageTwo.innerHTML = '';
-      }
-      if (data) {
+        messageOne.innerHTML = data.error;
+        messageTwo.textContent = '';
+        searchElement.value = '';
+      } else {
+        messageOne.textContent = data.location;
+        messageTwo.textContent = data.forecast;
         searchElement.value = '';
       }
-      messageOne.innerHTML = data.location;
-      messageTwo.innerHTML = data.forecast;
     });
   });
 });
